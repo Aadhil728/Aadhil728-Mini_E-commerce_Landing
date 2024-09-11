@@ -21,7 +21,7 @@ databaseConnection();
 // Use the cors middleware
 app.use(
   cors({
-    origin: "*",
+    origin: ["*"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -53,11 +53,10 @@ app.use("/", (res, req) => {
 });
 
 // handling middleware to catch any unhandled routes
-app.use((err, req, res, next) => {
-  console.error("Server Error:", err.stack); // Log the full error stack to see the issue
-  res.status(500).json({
+app.use((req, res, next) => {
+  res.status(404).json({
     success: false,
-    message: "Internal Server Error",
+    message: "Route not found",
   });
 });
 
