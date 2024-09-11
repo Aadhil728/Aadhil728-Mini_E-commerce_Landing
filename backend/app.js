@@ -19,7 +19,7 @@ const brands = require("./routes/brands");
 // Use the cors middleware
 app.use(
   cors({
-    origin: ["*"],
+    origin: ["https://aadhil728-mini-e-commerce-landing.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
