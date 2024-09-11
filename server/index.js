@@ -3,7 +3,7 @@ const cors = require("cors");
 const connectDatabase = require("./config/connectDB");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 //middleware
 app.use(
@@ -15,11 +15,21 @@ app.use(
 );
 app.use(express.json());
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Welcome to the Mini E-commerce API!");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-  connectDatabase();
-});
+// Connect to the database and then start the server
+const startServer = async () => {
+  try {
+    await connectDatabase(); // Ensure DB is connected before starting the server
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error("Failed to connect to database:", error);
+    process.exit(1); // Exit if DB connection fails
+  }
+};
+
+startServer();
