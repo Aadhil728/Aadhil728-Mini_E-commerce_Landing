@@ -37,7 +37,7 @@ app.use("/api/v1/", orders);
 // Use the heroSlider routes
 app.use("/api/v1/", heroSlider);
 // Use the banner routes
-app.use("/api/v1/", banner);
+app.use(banner);
 // Use the blogs routes
 app.use("/api/v1/", blogs);
 // Use the brands routes
@@ -50,11 +50,10 @@ app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
-app.use('/api/v1/brands', (req, res, next) => {
-  console.log('Brands route accessed');
+app.use("/api/v1/brands", (req, res, next) => {
+  console.log("Brands route accessed");
   next();
 });
-
 
 app.listen(process.env.PORT, () => {
   console.log(
