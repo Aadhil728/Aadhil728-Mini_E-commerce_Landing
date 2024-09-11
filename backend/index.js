@@ -46,7 +46,7 @@ app.use("/api/v1/", brands);
 // Serve static files from the 'images' directory
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
