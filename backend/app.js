@@ -47,7 +47,11 @@ app.use("/api/v1/", brands);
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.use("/", (res, req) => {
-  res.send("Welcome to Api");
+  res.status(200).json({
+    success: true,
+    message: "Welcome to the e-commerce API!",
+    version: "1.0.0",
+  });
 });
 
 // handling middleware to catch any unhandled routes
