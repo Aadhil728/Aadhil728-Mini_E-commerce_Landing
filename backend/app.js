@@ -48,6 +48,10 @@ app.use("/api/v1/", brands);
 // Serve static files from the 'images' directory
 app.use("/images", express.static(path.join(__dirname, "images")));
 
+app.use("/", (res, req) => {
+  res.send("Welcome to Api");
+});
+
 // handling middleware to catch any unhandled routes
 app.use((req, res, next) => {
   res.status(404).json({
