@@ -46,22 +46,6 @@ app.use("/api/v1/", brands);
 // Serve static files from the 'images' directory
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-app.use("/", (res, req) => {
-  res.status(200).json({
-    success: true,
-    message: "Welcome to the e-commerce API!",
-    version: "1.0.0",
-  });
-});
-
-// handling middleware to catch any unhandled routes
-app.use((req, res, next) => {
-  res.status(404).json({
-    success: false,
-    message: "Route not found",
-  });
-});
-
 app.listen(process.env.PORT, () => {
   console.log(
     `Server is running on port ${process.env.PORT} in ${process.env.NODE_ENV}`
