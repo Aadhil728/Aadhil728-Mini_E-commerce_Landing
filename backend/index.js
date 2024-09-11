@@ -50,6 +50,12 @@ app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
+app.use('/api/v1/brands', (req, res, next) => {
+  console.log('Brands route accessed');
+  next();
+});
+
+
 app.listen(process.env.PORT, () => {
   console.log(
     `Server is running on port ${process.env.PORT} in ${process.env.NODE_ENV}`
