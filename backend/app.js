@@ -3,10 +3,9 @@ const app = express();
 const dotenv = require("dotenv");
 
 const path = require("path");
-const cors = require("cors");
 const databaseConnection = require("./config/connectDB");
 dotenv.config({ path: path.join(__dirname, "config", "config.env") });
-
+const cors = require("cors");
 
 //route imports
 const auth = require("./routes/auth");
@@ -20,7 +19,13 @@ const brands = require("./routes/brands");
 databaseConnection();
 
 // Use the cors middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 // Middleware to parse JSON bodies
 app.use(express.json());
