@@ -46,6 +46,10 @@ app.use("/api/v1/", brands);
 // Serve static files from the 'images' directory
 app.use("/images", express.static(path.join(__dirname, "images")));
 
+app.use("/", (req, res) => {
+  res.send("Server is running");
+});
+
 app.listen(process.env.PORT, () => {
   console.log(
     `Server is running on port ${process.env.PORT} in ${process.env.NODE_ENV}`
