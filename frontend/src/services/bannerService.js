@@ -1,10 +1,9 @@
 // services/slider.js
-import axiosInstance from "../axios.config";
+import { bannerData } from "../data";
 
 export const fetchBannerData = async () => {
   try {
-    const response = await axiosInstance.get("/banner");
-    return response.data.data;
+    return bannerData;
   } catch (error) {
     console.error("Error fetching the banner data:", error);
     throw error;

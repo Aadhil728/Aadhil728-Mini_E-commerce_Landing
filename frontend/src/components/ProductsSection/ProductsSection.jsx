@@ -11,7 +11,6 @@ const ProductsSection = () => {
             try {
                 const data = await fetchLatestProducts();
                 setProductData(data);
-                // console.log('products', data);
             } catch (error) {
                 console.error('Error setting the banner data:', error);
             }

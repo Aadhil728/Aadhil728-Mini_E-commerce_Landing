@@ -37,7 +37,7 @@ app.use("/api/v1/", orders);
 // Use the heroSlider routes
 app.use("/api/v1/", heroSlider);
 // Use the banner routes
-app.use(banner);
+app.use("/api/v1/", banner);
 // Use the blogs routes
 app.use("/api/v1/", blogs);
 // Use the brands routes
