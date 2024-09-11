@@ -11,6 +11,7 @@ exports.getBrandsData = async (req, res, next) => {
     res.status(500).json({
       success: false,
       message: "Failed to fetch brands",
+      error: error.message, // Include the error message in the response
     });
   }
 };
