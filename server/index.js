@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const connectDatabase = require("./config/connectDB");
 
 const app = express();
 const PORT = 5000;
@@ -20,4 +21,5 @@ app.use("/", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  connectDatabase();
 });
