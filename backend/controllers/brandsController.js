@@ -1,11 +1,16 @@
-const brandModel = require("../models/brandModel");
-
-//get all the products from mongodb database (api/v1/brands)
 exports.getBrandsData = async (req, res, next) => {
-  const products = await brandModel.find({});
-  res.json({
-    success: true,
-    message: "Brands fetched successfully",
-    data: products,
-  });
+  try {
+    const products = await brandModel.find({});
+    res.json({
+      success: true,
+      message: "Brands fetched successfully",
+      data: products,
+    });
+  } catch (error) {
+    console.error("Error fetching brands:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch brands",
+    });
+  }
 };
