@@ -16,8 +16,6 @@ const banner = require("./routes/banner");
 const blogs = require("./routes/blogs");
 const brands = require("./routes/brands");
 
-databaseConnection();
-
 // Use the cors middleware
 app.use(
   cors({
@@ -60,8 +58,9 @@ app.use((req, res, next) => {
   });
 });
 
-// app.listen(process.env.PORT, () => {
-//   console.log(
-//     `Server is running on port ${process.env.PORT} in ${process.env.NODE_ENV}`
-//   );
-// });
+app.listen(process.env.PORT, () => {
+  console.log(
+    `Server is running on port ${process.env.PORT} in ${process.env.NODE_ENV}`
+  );
+  databaseConnection();
+});
