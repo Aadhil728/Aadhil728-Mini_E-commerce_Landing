@@ -56,8 +56,8 @@ app.use((req, res, next) => {
   });
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(
-    `Server is running on port ${process.env.PORT} in ${process.env.NODE_ENV}`
-  );
-});
+// app.listen(process.env.PORT, () => {
+//   console.log(
+//     `Server is running on port ${process.env.PORT} in ${process.env.NODE_ENV}`
+//   );
+// });
